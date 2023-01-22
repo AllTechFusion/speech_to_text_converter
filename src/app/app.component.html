@@ -1,27 +1,99 @@
-<div style="margin: 100px;">
+<div  class="box">
+  <div class="row" style="text-align: center;">
     <h1>Speech To text converter</h1>
-    <div class="row">
-<div class="col-2">
-  <button style="margin: 3%;" type="button" (click)="start()" class="btn btn-primary btn-lg">Start</button>
+    <p>Click on start button and choose language</p>
+  </div>
+  
+    <div class="row desktopOnly">
+      <div class=" col-sm-2 col-md-2 col-lg-2 col-xl-2 card  bg-primary text-white margin_crad" >
+        <div class="card-body">
+          <p class="card-title" style="text-align: center;">Click here to start voice recognition</p>
+          <button style="margin: 3%; width: 100%; background-color: green;" type="button" (click)="start()" class="btn btn-primary btn-lg">Start</button>
+        </div>
+      </div>
+  
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 card  bg-primary text-white margin_crad">
+        <div class="card-body">
+          <p class="card-title" style="text-align: center;">Click here to Stop voice recognition</p>
+          <button style="margin: 3%; width: 100%; background-color: green;" type="button" (click)="stop()" class="btn btn-primary btn-lg">Stop</button>
+        </div>
+      </div>
 
-</div>
-<div class="col-2">
-  <button style="margin: 3%;" type="button" (click)="stop()" class="btn btn-primary btn-lg">Stop</button>
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 card  bg-primary text-white margin_crad">
+        <div class="card-body">
+          <p class="card-title" style="text-align: center;">Click here to Clear converted text</p>
+          <button style="margin: 3%; width: 100%; background-color: green;" type="button" (click)="clear()" class="btn btn-primary btn-lg">Clear</button>
+        </div>
+      </div>
 
-</div>
-<div class="col-2">
-  <button style="margin: 3%;" type="button" (click)="clear()" class="btn btn-primary btn-lg">Clear</button>
+      <div class=" col-sm-2 col-md-3 col-lg-3 col-xl-3 card  bg-primary text-white">
+        <div class="card-body">
+          <p class="card-title" style="text-align: center;">Select language in which conversion should happen</p>
+          <div style="    text-align: center;">
+            <h5>Select Language</h5>
+            <select  [(ngModel)]="selectedValue" (change)="selectValue()">
+              <option *ngFor="let lang of languageCode" [value]="lang.value">{{lang.key}}</option> 
+            </select>       
+          </div>
+          </div>
+      </div>
 
-</div>
-<div class="col-2">
+    </div>
+
+
+<!-- for mobile view -->
+    <div class="row mobileOnly">
+      <div class="col-6   text-white margin_crad" > 
+       <!--  <div class="card-body"> 
+          <p class="card-title" style="text-align: center;">Click here to start voice recognition</p> -->
+          <button style="margin: 3%; width: 100%; background-color: green;" type="button" (click)="start()" class="btn btn-primary btn-lg">Start</button>
+        <!-- </div> -->
+      </div>
+  
+      <div class="col-6  text-white margin_crad">
+        <!-- <div class="card-body">
+          <p class="card-title" style="text-align: center;">Click here to Stop voice recognition</p> -->
+          <button style="margin: 3%; width: 100%; background-color: green;" type="button" (click)="stop()" class="btn btn-primary btn-lg">Stop</button>
+        <!-- </div> -->
+      </div>
+
+      <div class="col-6  text-white margin_crad">
+        <!-- <div class="card-body">
+          <p class="card-title" style="text-align: center;">Click here to Clear converted text</p> -->
+          <button style="margin: 3%; width: 100%; background-color: green;" type="button" (click)="clear()" class="btn btn-primary btn-lg">Clear</button>
+        <!-- </div> -->
+      </div>
+
+      <div class="col-6 text-white">
+        <!-- <div class="card-body">
+          <p class="card-title" style="text-align: center;">Select language in which conversion should happen</p> -->
+          <div style="    text-align: center; background-color: green">
+            <!-- <h5>Select Language</h5> -->
+            <select  [(ngModel)]="selectedValue" (change)="selectValue()">
+              <option  value="" selected disabled >Select Language</option>
+              <option *ngFor="let lang of languageCode" [value]="lang.value">{{lang.key}}</option> 
+            </select>       
+          </div>
+          <!-- </div> -->
+      </div>
+
+<!-- <div class="col-2">
   <h5>Select Language</h5>
   <select  [(ngModel)]="selectedValue" (change)="selectValue()">
     <option *ngFor="let lang of languageCode" [value]="lang.value">{{lang.key}}</option> 
   </select>
-</div>
+</div> -->
     </div>
-   
+   <div class="row " style="margin-top: 3%;text-align: center;">
+    <h5>Your converted text is below</h5>
+    <div class="bg-white textClass">
+      <p style="    font-size: 20px;
+      font-weight: 400;"> {{service.text}}</p>
+    </div>
+    
+    
+   </div>
 	
-    <p>{{service.text}}</p>
+
    
 </div>

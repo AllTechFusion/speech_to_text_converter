@@ -1,0 +1,45 @@
+.box{
+    background-color: lightgrey;
+    /* width: 300px; */
+    border: 15px solid green;
+    padding: 50px;
+    margin: 100px;
+    margin-top: 5%;
+}
+.margin_crad{
+    margin-right: 1%;
+}
+.textClass{
+    
+    border-radius: 10px;
+    border-radius: solid;
+    border: 5px solid green;
+    min-height: 33px;
+    min-height: 100px;
+}
+.mobileOnly{
+    display: none;
+       }
+
+      
+
+@media only screen and (max-width: 820px) {
+   .margin_crad{
+    margin-right: 0;
+    margin-bottom: 1%;
+   }
+   .mobileOnly{
+    display: flex;
+   }
+   .desktopOnly{
+    display: none;
+       }
+       .box{
+        background-color: lightgrey;
+        /* width: 300px; */
+        border: 15px solid green;
+        padding: 50px;
+        margin: 0;
+        margin-top: 5%;
+    }
+  }

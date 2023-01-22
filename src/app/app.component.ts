@@ -32,9 +32,18 @@ export class AppComponent {
         value:"hi"
       },
       {
-        key:"German (Standard)",
+        key:"German",
         value:"de"
+      },
+      {
+        key:"French",
+        value:"fr-FR"
+      },
+      {
+        key:"Japanese",
+        value:"ja"
       }
+   
     ]
     }
    
